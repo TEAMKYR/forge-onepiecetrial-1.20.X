@@ -6,13 +6,14 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.teamkyr.onepiecemod.OpMod;
+import net.teamkyr.onepiecemod.item.custom.VIVRE_CARDITEM;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, OpMod.MOD_ID);
 
     public static final RegistryObject<Item> VIVRE_CARD = ITEMS.register("vivre_card",
-            ()-> new Item(new Item.Properties()));
+            ()-> new VIVRE_CARDITEM(new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
