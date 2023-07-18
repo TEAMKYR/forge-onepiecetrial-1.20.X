@@ -13,7 +13,7 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, OpMod.MOD_ID);
 
     public static final RegistryObject<Item> VIVRE_CARD = ITEMS.register("vivre_card",
-            ()-> new VIVRE_CARDITEM(new Item.Properties().fireResistant().stacksTo(16)));
+            ()-> new VIVRE_CARDITEM(new Item.Properties().fireResistant().stacksTo(1)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

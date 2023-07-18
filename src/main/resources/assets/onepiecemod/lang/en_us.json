@@ -1,3 +1,7 @@
 {
-  "item.onepiecemod.vivre_card": "Vivre Card"
+  "item.onepiecemod.vivre_card": "Vivre Card",
+
+
+  "creativetab.one_piece_tab": "Mod Items and Blocks Tab",
+  "creativetab.testing_tab": "Testing Tab"
 }
