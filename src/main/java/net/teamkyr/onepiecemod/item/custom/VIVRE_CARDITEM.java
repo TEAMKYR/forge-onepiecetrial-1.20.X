@@ -1,8 +1,10 @@
 package net.teamkyr.onepiecemod.item.custom;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -12,6 +14,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.teamkyr.onepiecemod.util.Vivre_Card;
 
 import javax.annotation.Nullable;
 
@@ -44,12 +48,35 @@ public class VIVRE_CARDITEM extends Item {
     @Override
     //"Eye of Ender"s over to the entity to which the item is "attatched" to; can only be used if attatched = true | not implemented
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (!level.isClientSide() && hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).hasTag()) {
-            String output = findEntityCoords(player.getItemInHand(hand), level)[0]+
-                    ", "+findEntityCoords(player.getItemInHand(hand), level)[1]+
+        ItemStack stack = player.getItemInHand(hand);
+        if (!level.isClientSide() && hand == InteractionHand.MAIN_HAND && stack.hasTag()) {
+            /*String output = findEntityCoords(stack, level)[0]+
+                    ", "+findEntityCoords(stack, level)[1]+
                     ", "+
-                    findEntityCoords(player.getItemInHand(hand), level)[2];
-            player.sendSystemMessage(Component.literal(output));
+                    findEntityCoords(stack, level)[2];
+            player.sendSystemMessage(Component.literal(output));*/
+            player.startUsingItem(hand);
+            if (level instanceof ServerLevel) {
+                ServerLevel serverlevel = (ServerLevel)level;
+                Entity e = ((ServerLevel)level).getEntity(stack.getTag().getUUID("onepiecemod.attatchedentity"));
+                LivingEntity E = (LivingEntity) e;
+                BlockPos blockpos = E.blockPosition();
+                if (blockpos != null) {
+                    Vivre_Card eyeofender = new Vivre_Card(level, player.getX(), player.getY(0.5D), player.getZ());
+                    eyeofender.setItem(stack);
+                    eyeofender.signalTo(blockpos);
+                    level.gameEvent(GameEvent.PROJECTILE_SHOOT, eyeofender.position(), GameEvent.Context.of(player));
+                    level.addFreshEntity(eyeofender);
+                    level.levelEvent((Player)null, 1003, player.blockPosition(), 0);
+                    stack.shrink(1);
+
+                    player.awardStat(Stats.ITEM_USED.get(this));
+                    player.swing(hand, true);
+                    return InteractionResultHolder.success(stack);
+                }
+            }
+
+
         }
         return super.use(level, player, hand);
     }
@@ -68,12 +95,12 @@ public class VIVRE_CARDITEM extends Item {
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if (entity.hasCustomName() && (!stack.hasTag() || !stack.getTag().getBoolean("onepiecemod.attatched"))) {
             if (!player.level().isClientSide && entity.isAlive()) {
-                String s = entity.getCustomName().toString()+"'s Vivre Card";
+                String s = entity.getName()+"'s Vivre Card";
                 stack.setHoverName(Component.literal(s));
                 player.sendSystemMessage(Component.literal(s));
-                //system message for process confirmation
                 addNbtToVIVRECARD(player, entity, true, hand);
-                player.sendSystemMessage(Component.literal("yep"));
+                //system message for process confirmation
+                //player.sendSystemMessage(Component.literal("yep"));
             }
             return InteractionResult.sidedSuccess(player.level().isClientSide);
         } else {
