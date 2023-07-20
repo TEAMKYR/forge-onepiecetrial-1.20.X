@@ -1,0 +1,21 @@
+{
+  "type": "minecraft: crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "#S#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "item": "onepiecemod:vivre_card",
+    "count": 9
+  }
+}

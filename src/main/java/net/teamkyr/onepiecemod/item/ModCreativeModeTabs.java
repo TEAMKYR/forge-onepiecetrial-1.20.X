@@ -30,6 +30,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Items.ANVIL);
                         pOutput.accept(Items.NAME_TAG);
                         pOutput.accept(Items.POLAR_BEAR_SPAWN_EGG);
+                        pOutput.accept(Items.ENDER_EYE);
+                        pOutput.accept(Items.PAPER);
                     })
                     .build());
 

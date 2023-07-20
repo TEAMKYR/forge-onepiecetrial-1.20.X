@@ -95,7 +95,7 @@ public class VIVRE_CARDITEM extends Item {
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if (entity.hasCustomName() && (!stack.hasTag() || !stack.getTag().getBoolean("onepiecemod.attatched"))) {
             if (!player.level().isClientSide && entity.isAlive()) {
-                String s = entity.getName()+"'s Vivre Card";
+                String s = entity.getName().getString()+"'s Vivre Card";
                 stack.setHoverName(Component.literal(s));
                 player.sendSystemMessage(Component.literal(s));
                 addNbtToVIVRECARD(player, entity, true, hand);
