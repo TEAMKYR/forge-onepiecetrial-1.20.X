@@ -44,7 +44,7 @@ public class VIVRE_CARDITEM extends Item {
     public VIVRE_CARDITEM(Properties properties) {
         super(properties);
     }
-
+    private ServerLevel l;
     @Override
     //"Eye of Ender"s over to the entity to which the item is "attatched" to; can only be used if attatched = true | not implemented
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
@@ -95,10 +95,10 @@ public class VIVRE_CARDITEM extends Item {
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if (entity.hasCustomName() && (!stack.hasTag() || !stack.getTag().getBoolean("onepiecemod.attatched"))) {
             if (!player.level().isClientSide && entity.isAlive()) {
+                addNbtToVIVRECARD(player, entity, true, hand);
                 String s = entity.getName().getString()+"'s Vivre Card";
                 stack.setHoverName(Component.literal(s));
                 player.sendSystemMessage(Component.literal(s));
-                addNbtToVIVRECARD(player, entity, true, hand);
                 //system message for process confirmation
                 //player.sendSystemMessage(Component.literal("yep"));
             }
@@ -106,6 +106,13 @@ public class VIVRE_CARDITEM extends Item {
         } else {
             return InteractionResult.PASS;
         }
+    }
+    public Component getName(ItemStack stack) {
+        if (stack.hasTag()){
+            String s = stack.getTag().getString("onepiecemod.cardattatchedto");
+            return Component.literal(s);
+        }
+        return super.getName(stack);
     }
 
     //Track the HP of entity
@@ -125,6 +132,7 @@ public class VIVRE_CARDITEM extends Item {
         CompoundTag nbtData = new CompoundTag();
         nbtData.putBoolean("onepiecemod.attatched", a);
         nbtData.putUUID("onepiecemod.attatchedentity", entity.getUUID());
+        nbtData.putString("onepiecemod.cardattatchedto",entity.getName().getString()+"'s Vivre Card");
         vivreCard.setTag(nbtData);
     }
 }

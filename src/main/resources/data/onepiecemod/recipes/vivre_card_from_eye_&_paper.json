@@ -1,5 +1,5 @@
 {
-  "type": "minecraft: crafting_shaped",
+  "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
     "###",
@@ -16,6 +16,6 @@
   },
   "result": {
     "item": "onepiecemod:vivre_card",
-    "count": 9
+    "count": 1
   }
 }
