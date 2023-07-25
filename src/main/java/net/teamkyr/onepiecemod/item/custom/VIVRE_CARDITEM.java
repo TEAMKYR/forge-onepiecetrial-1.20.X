@@ -96,11 +96,6 @@ public class VIVRE_CARDITEM extends Item {
         if (entity.hasCustomName() && (!stack.hasTag() || !stack.getTag().getBoolean("onepiecemod.attatched"))) {
             if (!player.level().isClientSide && entity.isAlive()) {
                 addNbtToVIVRECARD(player, entity, true, hand);
-                String s = entity.getName().getString()+"'s Vivre Card";
-                stack.setHoverName(Component.literal(s));
-                player.sendSystemMessage(Component.literal(s));
-                //system message for process confirmation
-                //player.sendSystemMessage(Component.literal("yep"));
             }
             return InteractionResult.sidedSuccess(player.level().isClientSide);
         } else {

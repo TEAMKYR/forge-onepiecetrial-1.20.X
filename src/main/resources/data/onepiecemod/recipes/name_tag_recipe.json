@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "   ",
+    "-=-",
+    "   "
+  ],
+  "key": {
+    "=": {
+      "tag": "minecraft:signs"
+    },
+    "-": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:name_tag",
+    "count": 3
+  }
+}
