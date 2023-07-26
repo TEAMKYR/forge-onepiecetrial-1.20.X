@@ -13,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.teamkyr.onepiecemod.item.ModCreativeModeTabs;
 import net.teamkyr.onepiecemod.item.ModItems;
+import net.teamkyr.onepiecemod.util.ModItemProperties;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -64,6 +65,7 @@ public class OpMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            ModItemProperties.addCustomItemProperties();
         }
     }
 }

@@ -111,10 +111,15 @@ public class VIVRE_CARDITEM extends Item {
     }
 
     //Track the HP of entity
-    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pItemSlot, boolean pIsSelected) {
-        if (!pLevel.isClientSide) {
-
-
+    public void inventoryTick(ItemStack stack, Level level, Entity pEntity, int pItemSlot, boolean pIsSelected) {
+        if (!level.isClientSide) {
+            if (stack.hasTag()) {
+                Entity e = ((ServerLevel) level).getEntity(stack.getTag().getUUID("onepiecemod.attatchedentity"));
+                LivingEntity E = (LivingEntity) e;
+                if(E.getHealth()==0f){
+                    stack.shrink(1);
+                }
+            }
         }
     }
     public boolean isFoil(ItemStack stack) {

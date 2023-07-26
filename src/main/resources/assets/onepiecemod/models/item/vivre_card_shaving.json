@@ -1,0 +1,6 @@
+{
+  "parent": "onepiecemod:item/vivre_card",
+  "textures": {
+    "layer0": "onepiecemod:item/vivre_card_shaving"
+  }
+}

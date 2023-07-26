@@ -2,5 +2,31 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "onepiecemod:item/vivre_card_full"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "minecraft:tracking": 0.65
+      },
+      "model": "onepiecemod:item/vivre_card_dmgd"
+    },
+    {
+      "predicate": {
+        "minecraft:tracking": 0.5
+      },
+      "model": "onepiecemod:item/vivre_card_shaving"
+    },
+    {
+      "predicate": {
+        "minecraft:tracking": 0.25
+      },
+      "model": "onepiecemod:item/vivre_card_disappearing"
+    },
+    {
+      "predicate": {
+        "minecraft:tracking": 0.1
+      },
+      "model": "onepiecemod:item/vivre_card_crumbling"
+    }
+  ]
 }

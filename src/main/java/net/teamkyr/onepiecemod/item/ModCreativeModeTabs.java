@@ -19,6 +19,30 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.one_piece_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ModItems.VIVRE_CARD.get());
+                        pOutput.accept(ModItems.FIRERESIST_FRUIT.get());
+                        pOutput.accept(ModItems.REGEN_FRUIT_I.get());
+                        pOutput.accept(ModItems.REGEN_FRUIT_II.get());
+                        pOutput.accept(ModItems.REGEN_FRUIT_III.get());
+                        pOutput.accept(ModItems.SPEED_FRUIT_I.get());
+                        pOutput.accept(ModItems.SPEED_FRUIT_II.get());
+                        pOutput.accept(ModItems.SPEED_FRUIT_III.get());
+                        pOutput.accept(ModItems.STRENGTH_FRUIT_I.get());
+                        pOutput.accept(ModItems.STRENGTH_FRUIT_II.get());
+                        pOutput.accept(ModItems.STRENGTH_FRUIT_III.get());
+                        pOutput.accept(ModItems.INVISIBLE_FRUIT.get());
+                        pOutput.accept(ModItems.NV_FRUIT.get());
+                        pOutput.accept(ModItems.LEAP_FRUIT_I.get());
+                        pOutput.accept(ModItems.LEAP_FRUIT_II.get());
+                        pOutput.accept(ModItems.LEAP_FRUIT_III.get());
+                        pOutput.accept(ModItems.HASTE_FRUIT_I.get());
+                        pOutput.accept(ModItems.HASTE_FRUIT_II.get());
+                        pOutput.accept(ModItems.HASTE_FRUIT_III.get());
+                        pOutput.accept(ModItems.RESIST_FRUIT_I.get());
+                        pOutput.accept(ModItems.RESIST_FRUIT_II.get());
+                        pOutput.accept(ModItems.RESIST_FRUIT_III.get());
+                        pOutput.accept(ModItems.LUCK_FRUIT_I.get());
+                        pOutput.accept(ModItems.LUCK_FRUIT_II.get());
+                        pOutput.accept(ModItems.LUCK_FRUIT_III.get());
                     })
                     .build());
 
@@ -33,15 +57,36 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Items.ENDER_EYE);
                         pOutput.accept(Items.PAPER);
                         pOutput.accept(Items.CRAFTING_TABLE);
-                        pOutput.accept(Items.ACACIA_SIGN);
-                        pOutput.accept(Items.IRON_INGOT);
-                        pOutput.accept(Items.IRON_NUGGET);
                         pOutput.accept(Items.SMITHING_TABLE);
                         pOutput.accept(Items.DIAMOND_SWORD);
                         pOutput.accept(Items.NETHERITE_INGOT);
                         pOutput.accept(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
                         pOutput.accept(Items.NETHERRACK);
                         pOutput.accept(Items.EXPERIENCE_BOTTLE);
+                        pOutput.accept(ModItems.FIRERESIST_FRUIT.get());
+                        pOutput.accept(ModItems.REGEN_FRUIT_I.get());
+                        pOutput.accept(ModItems.REGEN_FRUIT_II.get());
+                        pOutput.accept(ModItems.REGEN_FRUIT_III.get());
+                        pOutput.accept(ModItems.SPEED_FRUIT_I.get());
+                        pOutput.accept(ModItems.SPEED_FRUIT_II.get());
+                        pOutput.accept(ModItems.SPEED_FRUIT_III.get());
+                        pOutput.accept(ModItems.STRENGTH_FRUIT_I.get());
+                        pOutput.accept(ModItems.STRENGTH_FRUIT_II.get());
+                        pOutput.accept(ModItems.STRENGTH_FRUIT_III.get());
+                        pOutput.accept(ModItems.INVISIBLE_FRUIT.get());
+                        pOutput.accept(ModItems.NV_FRUIT.get());
+                        pOutput.accept(ModItems.LEAP_FRUIT_I.get());
+                        pOutput.accept(ModItems.LEAP_FRUIT_II.get());
+                        pOutput.accept(ModItems.LEAP_FRUIT_III.get());
+                        pOutput.accept(ModItems.HASTE_FRUIT_I.get());
+                        pOutput.accept(ModItems.HASTE_FRUIT_II.get());
+                        pOutput.accept(ModItems.HASTE_FRUIT_III.get());
+                        pOutput.accept(ModItems.RESIST_FRUIT_I.get());
+                        pOutput.accept(ModItems.RESIST_FRUIT_II.get());
+                        pOutput.accept(ModItems.RESIST_FRUIT_III.get());
+                        pOutput.accept(ModItems.LUCK_FRUIT_I.get());
+                        pOutput.accept(ModItems.LUCK_FRUIT_II.get());
+                        pOutput.accept(ModItems.LUCK_FRUIT_III.get());
                     })
                     .build());
 
