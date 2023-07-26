@@ -6,24 +6,28 @@
   "overrides": [
     {
       "predicate": {
+        "minecraft:damaged": 1,
         "minecraft:tracking": 0.65
       },
       "model": "onepiecemod:item/vivre_card_dmgd"
     },
     {
       "predicate": {
+        "minecraft:damaged": 1,
         "minecraft:tracking": 0.5
       },
       "model": "onepiecemod:item/vivre_card_shaving"
     },
     {
       "predicate": {
+        "minecraft:damaged": 1,
         "minecraft:tracking": 0.25
       },
       "model": "onepiecemod:item/vivre_card_disappearing"
     },
     {
       "predicate": {
+        "minecraft:damaged": 1,
         "minecraft:tracking": 0.1
       },
       "model": "onepiecemod:item/vivre_card_crumbling"
