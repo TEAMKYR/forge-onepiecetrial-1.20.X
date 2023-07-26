@@ -6,6 +6,7 @@ import net.minecraft.world.item.ItemStack;
 public class Devil_Fruit extends Item {
     public Devil_Fruit(Properties pProperties) {
         super(pProperties);
+
     }
 
     @Override

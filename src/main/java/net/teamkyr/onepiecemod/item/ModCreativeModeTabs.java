@@ -54,13 +54,10 @@ public class ModCreativeModeTabs {
                         pOutput.accept(Items.ANVIL);
                         pOutput.accept(Items.NAME_TAG);
                         pOutput.accept(Items.POLAR_BEAR_SPAWN_EGG);
-                        pOutput.accept(Items.ENDER_EYE);
-                        pOutput.accept(Items.PAPER);
                         pOutput.accept(Items.CRAFTING_TABLE);
                         pOutput.accept(Items.SMITHING_TABLE);
                         pOutput.accept(Items.DIAMOND_SWORD);
                         pOutput.accept(Items.NETHERITE_INGOT);
-                        pOutput.accept(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
                         pOutput.accept(Items.NETHERRACK);
                         pOutput.accept(Items.EXPERIENCE_BOTTLE);
                         pOutput.accept(ModItems.FIRERESIST_FRUIT.get());

@@ -19,7 +19,7 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, OpMod.MOD_ID);
 
     public static final RegistryObject<Item> VIVRE_CARD = ITEMS.register("vivre_card",
-            ()-> new VIVRE_CARDITEM(new Item.Properties().fireResistant().stacksTo(1)));
+            ()-> new VIVRE_CARDITEM(new Item.Properties().fireResistant().stacksTo(1).rarity(Rarity.EPIC)));
 
     //Effect Fruits
     public static final RegistryObject<Item> FIRERESIST_FRUIT = ITEMS.register("fireresist_fruit",
