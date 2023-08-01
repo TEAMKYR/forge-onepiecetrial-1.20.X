@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " O ",
+    "-|-",
+    "   "
+  ],
+  "key": {
+    "|": {
+      "tag": "minecraft:leather"
+    },
+    "-": {
+      "item": "minecraft:iron_nugget"
+    },
+    "O": {
+      "item": "minecraft:lead"
+    }
+  },
+  "result": {
+    "item": "minecraft:name_tag",
+    "count": 3
+  }
+}

@@ -1,9 +1,7 @@
 package net.teamkyr.onepiecemod.fruitpowers;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraftforge.common.capabilities.AutoRegisterCapability;
 
-@AutoRegisterCapability
 public class PlayerPowers {
     private int fruits;
 

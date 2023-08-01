@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.teamkyr.onepiecemod.item.ModItems;
 
 public class ModItemProperties extends ItemProperties {
-    private static ServerLevel serverLevel;
     public static void addCustomItemProperties(){
         makeCard(ModItems.VIVRE_CARD.get());
     }
@@ -17,6 +16,7 @@ public class ModItemProperties extends ItemProperties {
         ItemProperties.register(item, new ResourceLocation("tracking"), (p_272332_, p_272333_, p_272334_, p_272335_) -> {
             Float hp = 1F;
             if(p_272332_.hasTag()){
+                ServerLevel serverLevel = (ServerLevel) p_272334_.level();
                 Entity e =(serverLevel.getEntity(p_272332_.getTag().getUUID("onepiecemod.attatchedentity")));
                 LivingEntity E = (LivingEntity)e;
                 hp = E.getHealth()/E.getMaxHealth();
@@ -26,7 +26,8 @@ public class ModItemProperties extends ItemProperties {
         register(item, new ResourceLocation("damaged"), (p_174630_, p_174631_, p_174632_, p_174633_) -> {
             Float hp = 1F;
             if(p_174630_.hasTag()){
-                Entity e =(serverLevel.getEntity(p_174630_.getTag().getUUID("onepiecemod.attatchedentity")));
+                ServerLevel serverLevel = (ServerLevel)p_174632_.level();
+                Entity e =(serverLevel.getEntity(item.getDefaultInstance().getTag().getUUID("onepiecemod.attatchedentity")));
                 LivingEntity E = (LivingEntity)e;
                 hp = E.getHealth()/E.getMaxHealth();
             }
