@@ -116,7 +116,7 @@ public class VIVRE_CARDITEM extends Item {
             if (stack.hasTag()) {
                 Entity e = ((ServerLevel) level).getEntity(stack.getTag().getUUID("onepiecemod.attatchedentity"));
                 LivingEntity E = (LivingEntity) e;
-                if(E.getHealth()==0f){
+                if(E == null || E.getHealth()==0f){
                     stack.shrink(1);
                 }
             }
