@@ -29,10 +29,10 @@ public class ModEvents {
         public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event){
             if(event.getObject() instanceof Player){
                 if(!event.getObject().getCapability(PlayerPowersProvider.PLAYER_POWERS).isPresent()){
-                    event.addCapability(new ResourceLocation(OpMod.MOD_ID, "properties"), new PlayerPowersProvider());
+                    event.addCapability(new ResourceLocation(OpMod.MOD_ID, "powers"), new PlayerPowersProvider());
                 }
                 if(!event.getObject().getCapability(PlayerHakiProvider.PLAYER_HAKI).isPresent()){
-                    event.addCapability(new ResourceLocation(OpMod.MOD_ID, "properties"), new PlayerHakiProvider());
+                    event.addCapability(new ResourceLocation(OpMod.MOD_ID, "haki"), new PlayerHakiProvider());
                 }
             }
         }
@@ -86,16 +86,26 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onExpGain(PlayerXpEvent.XpChange event){
+    public static void onExpGain(PlayerXpEvent.PickupXp event){
     Player player = event.getEntity();
     LazyOptional<PlayerHaki> playerHaki = player.getCapability(PlayerHakiProvider.PLAYER_HAKI);
         playerHaki.ifPresent(cap -> {
             if(cap.getAchosen()){
-                for(int i = 0; i <= event.getAmount(); i++){
+                for(int i = 0; i <= event.getOrb().getValue(); i++){
                     cap.AHakiAdd();
                     if(cap.getAHaki() == cap.getAHNeededForNextLevel()){
                         cap.Ahakileveladd();
                         cap.AHakiReset();
+                        player.sendSystemMessage(Component.literal(""+cap.getAhakilevel()));
+                    }
+                }
+            }
+            else{
+                for(int i = 0; i <= event.getOrb().getValue(); i++){
+                    cap.OHakiAdd();
+                    if(cap.getOHaki() == cap.getOHNeededForNextLevel()){
+                        cap.Ohakileveladd();
+                        cap.OHakiReset();
                         player.sendSystemMessage(Component.literal(""+cap.getOhakilevel()));
                     }
                 }

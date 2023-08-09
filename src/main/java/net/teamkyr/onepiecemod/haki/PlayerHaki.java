@@ -52,6 +52,13 @@ public class PlayerHaki {
             return this.Ahakilvl >= 15 ? 37 + (this.Ahakilvl - 15) * 5 : 7 + this.Ahakilvl * 2;
         }
     }
+    public int getOHNeededForNextLevel(){
+        if (this.Ohakilvl >= 30) {
+            return 112 + (this.Ohakilvl - 30) * 9;
+        } else {
+            return this.Ohakilvl >= 15 ? 37 + (this.Ohakilvl - 15) * 5 : 7 + this.Ohakilvl * 2;
+        }
+    }
     public int getAhakilevel(){
         return Ahakilvl;
     }
